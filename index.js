@@ -1,10 +1,10 @@
-let supTag = document.querySelector("sup");
+let supTag = document.querySelector("sup").tagName;
 function get_text(el) {
   ret = "";
   const length = el.childNodes.length;
   for (let i = 0; i < length; i++) {
     const node = el.childNodes[i];
-    if (!supTag.isEqualNode(node)) {
+    if (supTag !== node.tagName) {
       if (node.nodeType != 8) {
         ret += node.nodeType != 1 ? node.nodeValue : get_text(node);
       }
