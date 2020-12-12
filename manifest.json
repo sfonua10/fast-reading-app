@@ -1,0 +1,20 @@
+{
+  "name": "Fast Reading App",
+  "version": "1.0",
+  "description": "Grab all the content on the page and speed read it while your eyes stay locked in at one place",
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "icons": {
+    "128": "images/icon_128.png"
+  },
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "images/icon_128.png"
+    }
+  },
+  "manifest_version": 2,
+  "permissions": ["declarativeContent", "storage"]
+}
