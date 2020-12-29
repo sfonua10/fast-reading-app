@@ -30,19 +30,36 @@ function get_text(el) {
   }
   return ret;
 }
+
+function getIt(word) {
+  console.log('yo')
+  const target = Math.ceil(word.split("").length / 2 - 1);
+  let newArr = [];
+  for(let i = 0; i < word.length; i++) {
+    if(i === target) {
+      newArr.push(`<b style="color: orange">${word[i]}</b>`)
+    } else {
+      newArr.push(word[i])
+    }
+  }
+  return newArr.join("")
+}
+
 function runScript() {
+  document.body.style.backgroundColor = '#414141';
   const regex = /\s|[.]|—|;/g;
   const words = get_text(document.querySelector("body"));
   const arrOfWords = words
     .split(regex)
-    .filter((word) => word !== "" && word !== "↵");
+    .filter((word) => word !== "" && word !== "↵").map(word => getIt(word));
   console.log("arrOfWords", arrOfWords);
+
   for (let i = 0; i < arrOfWords.length; i++) {
     ((i) => {
       setTimeout(() => {
         document.querySelector(
           "#target"
-        ).innerHTML = `<span style="color:#414141">${arrOfWords[i]}</span>`;
+        ).innerHTML = `<span style="color:#fff">${arrOfWords[i]}</span>`;
       }, 200 * (i + 1));
     })(i);
   }
