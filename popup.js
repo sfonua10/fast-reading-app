@@ -31,15 +31,26 @@ function get_text(el) {
   return ret;
 }
 
+// function getIt(word) {
+//   console.log('yo')
+//   const target = Math.ceil(word.split("").length / 2 - 1);
+//   let newArr = [];
+//   for(let i = 0; i < word.length; i++) {
+//     if(i === target) {
+//       newArr.push(`<b style="color: orange;">${word[i]}</b>`)
+//     } else {
+//       newArr.push(`<span>${word[i]}</span>`)
+//     }
+//   }
+//   return newArr.join("")
+// }
 function getIt(word) {
-  console.log('yo')
-  const target = Math.ceil(word.split("").length / 2 - 1);
   let newArr = [];
   for(let i = 0; i < word.length; i++) {
-    if(i === target) {
-      newArr.push(`<b style="color: orange">${word[i]}</b>`)
+    if(i === 0) {
+      newArr.push(`<span><b style="color: orange;">${word[i]}</b></span>`)
     } else {
-      newArr.push(word[i])
+      newArr.push(`<span>${word[i]}</span>`)
     }
   }
   return newArr.join("")
@@ -58,8 +69,8 @@ function runScript() {
     ((i) => {
       setTimeout(() => {
         document.querySelector(
-          "#target"
-        ).innerHTML = `<span style="color:#fff">${arrOfWords[i]}</span>`;
+          "#hit"
+        ).innerHTML = `${arrOfWords[i]}`;
       }, 200 * (i + 1));
     })(i);
   }
